@@ -3,6 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWAwayDayWeb", "TWAwayDayWeb\TWAwayDayWeb.csproj", "{73C22DEE-1C8C-4431-A563-B06B855405B3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SpaceBeans", "SpaceBeans", "{9AA2D63E-0065-4C2A-A7B6-82170CECD6C1}"
+	ProjectSection(SolutionItems) = preProject
+		SpaceBeans\Rules.pdf = SpaceBeans\Rules.pdf
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBeans", "SpaceBeans\Game\SpaceBeans.csproj", "{573F07AE-0760-4657-B813-ADA206811DED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBeans.Terminal", "SpaceBeans\Terminal\SpaceBeans.Terminal.csproj", "{5BB9039F-026C-4848-89B1-44F8B852DEAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4FAF8586-30CB-43AA-ABBC-DD4898E4BC21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBeans.Test", "SpaceBeans\Tests\SpaceBeans.Test\SpaceBeans.Test.csproj", "{8097EA40-FDBF-46DD-A08B-746A3F691848}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,8 +26,26 @@ Global
 		{73C22DEE-1C8C-4431-A563-B06B855405B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73C22DEE-1C8C-4431-A563-B06B855405B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73C22DEE-1C8C-4431-A563-B06B855405B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{573F07AE-0760-4657-B813-ADA206811DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{573F07AE-0760-4657-B813-ADA206811DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{573F07AE-0760-4657-B813-ADA206811DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{573F07AE-0760-4657-B813-ADA206811DED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BB9039F-026C-4848-89B1-44F8B852DEAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BB9039F-026C-4848-89B1-44F8B852DEAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BB9039F-026C-4848-89B1-44F8B852DEAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BB9039F-026C-4848-89B1-44F8B852DEAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8097EA40-FDBF-46DD-A08B-746A3F691848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8097EA40-FDBF-46DD-A08B-746A3F691848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8097EA40-FDBF-46DD-A08B-746A3F691848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8097EA40-FDBF-46DD-A08B-746A3F691848}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{573F07AE-0760-4657-B813-ADA206811DED} = {9AA2D63E-0065-4C2A-A7B6-82170CECD6C1}
+		{5BB9039F-026C-4848-89B1-44F8B852DEAD} = {9AA2D63E-0065-4C2A-A7B6-82170CECD6C1}
+		{4FAF8586-30CB-43AA-ABBC-DD4898E4BC21} = {9AA2D63E-0065-4C2A-A7B6-82170CECD6C1}
+		{8097EA40-FDBF-46DD-A08B-746A3F691848} = {4FAF8586-30CB-43AA-ABBC-DD4898E4BC21}
 	EndGlobalSection
 EndGlobal
