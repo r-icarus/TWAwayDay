@@ -1,6 +1,11 @@
-﻿namespace SpaceBeans {
+﻿using System.Runtime.Serialization;
+
+namespace SpaceBeans {
+    [DataContract]
     public class Bean {
+        [DataMember]
         private readonly int rank;
+        [DataMember]
         private readonly Suit suit;
 
         public Bean(int rank, Suit suit) {

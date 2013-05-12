@@ -1,34 +1,36 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 using CodePhile.Games;
 
 namespace SpaceBeans {
-    public class SellDecision : PassableDecision {
+    public class SellDecision : PassableDecision, ISpaceBeansDecision {
 
-        private readonly Trader player;
+        private readonly Trader trader;
         private readonly DiscardPile discardPile;
 
-        public SellDecision(Trader player, DiscardPile discardPile) {
-            this.player = player;
+        public SellDecision(Trader trader, DiscardPile discardPile) {
+            this.trader = trader;
             this.discardPile = discardPile;
         }
 
         protected override Exception GetPassError() {
-            if(!player.HasLegalPlay()) {
+            if (!trader.HasLegalPlay()) {
                 return new RuleViolationException("Must convert revealed collection if there is no legal play.");
             }
             return null;
         }
 
         public bool CanSell() {
-            return player.RevealedCollection.Count > 0;
+            return trader.RevealedCollection.Count > 0;
         }
 
         public void Sell() {
-            OnCompleted(new SellDecisionResult());
+            OnDecided(new SellResult());
         }
 
-        private class SellDecisionResult : DecisionResult<SellDecision> {
+        [DataContract]
+        public class SellResult : DecisionResult<SellDecision> {
             public override void Validate(SellDecision decision) {
                 if(!decision.CanSell()) {
                     throw new RuleViolationException("Cannot convert empty collection.");
@@ -36,9 +38,11 @@ namespace SpaceBeans {
             }
 
             public override void Resolve(SellDecision decision) {
-                var discardedCards = decision.player.SellRevealedCollection();
+                var discardedCards = decision.trader.SellRevealedCollection();
                 decision.discardPile.DiscardBeans(discardedCards);
             }
         }
+
+        public Trader Trader { get { return trader; } }
     }
 }

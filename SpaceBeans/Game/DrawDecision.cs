@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 using CodePhile.Games;
 
 namespace SpaceBeans {
-    public class DrawDecision : PassableDecision {
+    public class DrawDecision : PassableDecision, ISpaceBeansDecision {
 
         private readonly Trader trader;
         private readonly DrawPile drawPile;
@@ -21,10 +22,15 @@ namespace SpaceBeans {
         }
 
         public void Draw() {
-            OnCompleted(new DrawDecisionResult());
+            OnDecided(new DrawResult());
         }
 
-        private class DrawDecisionResult : DecisionResult<DrawDecision> {
+        public Trader Trader {
+            get { return trader; }
+        }
+
+        [DataContract]
+        public class DrawResult : DecisionResult<DrawDecision> {
             public override void Validate(DrawDecision decision) {
             }
 

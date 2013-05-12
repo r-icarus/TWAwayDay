@@ -1,7 +1,7 @@
 ﻿using System.Text;
 
 namespace SpaceBeans {
-    internal class DrawDecisionMaker : DecisionMaker<DrawDecision> {
+    internal class DrawDecisionMaker : TraderDecisionMaker<DrawDecision> {
 
         public DrawDecisionMaker(Trader trader) : base(trader) {}
 

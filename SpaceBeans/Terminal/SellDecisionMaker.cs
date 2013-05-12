@@ -1,7 +1,7 @@
 ﻿using System.Text;
 
 namespace SpaceBeans {
-    internal class SellDecisionMaker : DecisionMaker<SellDecision> {
+    internal class SellDecisionMaker : TraderDecisionMaker<SellDecision> {
         public SellDecisionMaker(Trader trader) : base(trader) {}
 
         public override void MakeDecision(SellDecision decision) {

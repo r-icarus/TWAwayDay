@@ -8,13 +8,13 @@ namespace SpaceBeans {
         private readonly Trader trader;
         private readonly DrawPile drawPile;
         private readonly DiscardPile discardPile;
-        private readonly Trader receivingPlayer;
+        private readonly Trader receivingTrader;
 
         public Turn(Trader trader, DrawPile drawPile, DiscardPile discardPile, Trader receivingTrader) {
             this.trader = trader;
             this.drawPile = drawPile;
             this.discardPile = discardPile;
-            this.receivingPlayer = receivingTrader;
+            this.receivingTrader = receivingTrader;
         }
 
         public Trader Player {
@@ -28,7 +28,7 @@ namespace SpaceBeans {
         }
 
         public override void End() {
-            receivingPlayer.AddBeansToHand(trader.PassHand());
+            receivingTrader.AddBeansToHand(trader.PassHand());
         }
     }
 }

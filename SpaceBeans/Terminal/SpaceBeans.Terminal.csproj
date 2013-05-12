@@ -13,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -24,6 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>ExtendedCorrectnessRules.ruleset</CodeAnalysisRuleSet>
+    <Externalconsole>true</Externalconsole>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,26 +41,42 @@
     <Reference Include="CodePhile.Core">
       <HintPath>..\..\packages\CodePhile.Core.0.1.0.0\lib\net40\CodePhile.Core.dll</HintPath>
     </Reference>
-    <Reference Include="CodePhile.Games.Core, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="CodePhile.Games.Core, Version=0.1.17.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\CodePhile.Games.Core.0.1.2-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
+      <HintPath>..\..\packages\CodePhile.Games.Core.0.1.17-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
     </Reference>
-    <Reference Include="CodePhile.Terminal, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="CodePhile.Games.Remote, Version=0.1.17.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\CodePhile.Terminal.0.1.1-alpha\lib\net40\CodePhile.Terminal.dll</HintPath>
+      <HintPath>..\..\packages\CodePhile.Games.Remote.0.1.17-alpha\lib\net40\CodePhile.Games.Remote.dll</HintPath>
+    </Reference>
+    <Reference Include="CodePhile.ServiceModel">
+      <HintPath>..\..\packages\CodePhile.ServiceModel.0.1.1-alpha\lib\net40\CodePhile.ServiceModel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="CodePhile.Terminal">
+      <HintPath>..\..\packages\CodePhile.Terminal.0.1.1-alpha\lib\net40\CodePhile.Terminal.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsolePlayer.cs" />
+    <Compile Include="IDecisionMaker.cs" />
+    <Compile Include="ISpaceBeansGameClient.cs" />
+    <Compile Include="ISpaceBeansGameHost.cs" />
+    <Compile Include="LocalPlayer.cs" />
+    <Compile Include="RemotePlayer.cs" />
     <Compile Include="SellDecisionMaker.cs" />
     <Compile Include="DecisionMaker.cs" />
     <Compile Include="DrawDecisionMaker.cs" />
     <Compile Include="FixedLabelSequence.cs" />
-    <Compile Include="IDecisionMaker.cs" />
     <Compile Include="BuyDecisionMaker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpaceBeansGameClient.cs" />
+    <Compile Include="SpaceBeansGameHost.cs" />
+    <Compile Include="SpaceBeansSeat.cs" />
+    <Compile Include="TraderDecisionMaker.cs" />
     <Compile Include="YesNoMenu.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,7 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Game\SpaceBeans.csproj">
-      <Project>{573f07ae-0760-4657-b813-ada206811ded}</Project>
+      <Project>{573F07AE-0760-4657-B813-ADA206811DED}</Project>
       <Name>SpaceBeans</Name>
     </ProjectReference>
   </ItemGroup>

@@ -2,6 +2,6 @@
 
 namespace SpaceBeans {
     internal interface IDecisionMaker {
-        bool MakeDecision(Decision decision);
+        bool MakeDecision(ISpaceBeansDecision decision);
     }
 }

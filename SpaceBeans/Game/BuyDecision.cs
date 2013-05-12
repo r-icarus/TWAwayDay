@@ -1,35 +1,53 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 
 using CodePhile;
 using CodePhile.Games;
 
 namespace SpaceBeans {
-    public class BuyDecision : Decision {
+    public class BuyDecision : Decision, ISpaceBeansDecision {
+
         private readonly Trader trader;
 
         public BuyDecision(Trader trader) {
             this.trader = trader;
         }
 
+        public Trader Trader {
+            get { return trader; }
+        }
+
         public IEnumerable<Bean> AvailableCards {
-            get { return trader.CardsInHand; }
+            get { return Trader.CardsInHand; }
         }
 
         public void PlayCards(IEnumerable<Bean> cardsToPlay, CollectionIdentifier targetCollection) {
-            OnCompleted(new PlayCardsDecisionResult(cardsToPlay, targetCollection));
+            OnDecided(new BuyBeansResult(cardsToPlay, targetCollection));
         }
 
-        private class PlayCardsDecisionResult : DecisionResult<BuyDecision> {
+        [DataContract]
+        public class BuyBeansResult : DecisionResult<BuyDecision> {
+            [DataMember]
             private readonly ISet<Bean> cardsToPlay;
+            [DataMember]
             private readonly CollectionIdentifier targetCollection;
 
-            public PlayCardsDecisionResult(IEnumerable<Bean> cardsToPlay, CollectionIdentifier targetCollection) {
+            public BuyBeansResult(IEnumerable<Bean> cardsToPlay, CollectionIdentifier targetCollection) {
                 this.cardsToPlay = cardsToPlay.ToSet();
                 this.targetCollection = targetCollection;
             }
 
             public override void Validate(BuyDecision decision) {
+                var beansInHand = decision.AvailableCards.ToList();
+                foreach(var bean in cardsToPlay.ToArray()) {
+                    Bean matchingBean;
+                    if(beansInHand.TryFirst(b => b.Rank == bean.Rank && b.Suit == bean.Suit, out matchingBean)) {
+                        beansInHand.Remove(matchingBean);
+                        cardsToPlay.Remove(bean);
+                        cardsToPlay.Add(matchingBean);
+                    }
+                }
                 if(cardsToPlay.Count == 0) {
                     throw new RuleViolationException("Must play at least one card.");
                 }
@@ -46,11 +64,11 @@ namespace SpaceBeans {
             }
 
             public override void Resolve(BuyDecision decision) {
-                decision.trader.PlayCardsToCollection(targetCollection, cardsToPlay);
+                decision.Trader.PlayCardsToCollection(targetCollection, cardsToPlay);
             }
 
             private BeanCargo GetTargetCollection(BuyDecision decision) {
-                return decision.trader.GetCollection(targetCollection);
+                return decision.Trader.GetCollection(targetCollection);
             }
         }
     }

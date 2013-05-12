@@ -13,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,9 +38,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\CodePhile.Core.0.1.0.0\lib\net40\CodePhile.Core.dll</HintPath>
     </Reference>
-    <Reference Include="CodePhile.Games.Core, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="CodePhile.Games.Core, Version=0.1.17.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\CodePhile.Games.Core.0.1.2-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\CodePhile.Games.Core.0.1.17-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
@@ -58,7 +60,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Game\SpaceBeans.csproj">
       <Project>{573F07AE-0760-4657-B813-ADA206811DED}</Project>
-      <Name>AwayDay.SpaceBeans</Name>
+      <Name>SpaceBeans</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

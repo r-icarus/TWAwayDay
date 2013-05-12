@@ -6,7 +6,7 @@ using System.Text;
 using CodePhile.Terminal;
 
 namespace SpaceBeans {
-    internal class BuyDecisionMaker : DecisionMaker<BuyDecision> {
+    internal class BuyDecisionMaker : TraderDecisionMaker<BuyDecision> {
         private readonly ICollection<Bean> beansToBuy = new HashSet<Bean>();
         private CollectionIdentifier targetCollection;
         private Suit? selectedSuit;
