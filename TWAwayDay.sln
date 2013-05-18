@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4FAF8586
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBeans.Test", "SpaceBeans\Tests\SpaceBeans.Test\SpaceBeans.Test.csproj", "{8097EA40-FDBF-46DD-A08B-746A3F691848}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBean.Android", "SpaceBean.Android\SpaceBean.Android.csproj", "{E80ACB1B-AC80-4059-A7F5-B9A365B29B0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBean.Android", "SpaceBeans.Android\SpaceBeans.Android.csproj", "{E80ACB1B-AC80-4059-A7F5-B9A365B29B0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
