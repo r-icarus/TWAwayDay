@@ -5,6 +5,10 @@ namespace SpaceBeans {
     public class SpaceBeansGameSetup {
         private readonly IList<Trader> traders = new List<Trader>();
 
+        public int TraderCount {
+            get { return traders.Count; }
+        }
+
         public void Validate() {
         }
 

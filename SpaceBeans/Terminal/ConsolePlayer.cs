@@ -10,8 +10,11 @@ namespace SpaceBeans {
 
         protected ConsolePlayer() {}
 
-        protected ConsolePlayer(int position) {
-            trader = new Trader("Trader " + position);
+        protected ConsolePlayer(int position) : this("Trader " + position) {
+        }
+
+        protected ConsolePlayer(string traderName) {
+            trader = new Trader(traderName);
         }
 
         public Trader Trader {
