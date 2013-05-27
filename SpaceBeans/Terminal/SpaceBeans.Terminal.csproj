@@ -41,14 +41,6 @@
     <Reference Include="CodePhile.Core">
       <HintPath>..\..\packages\CodePhile.Core.0.1.0.0\lib\net40\CodePhile.Core.dll</HintPath>
     </Reference>
-    <Reference Include="CodePhile.Games.Core, Version=0.1.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\CodePhile.Games.Core.0.1.17-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="CodePhile.Games.Remote, Version=0.1.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\CodePhile.Games.Remote.0.1.17-alpha\lib\net40\CodePhile.Games.Remote.dll</HintPath>
-    </Reference>
     <Reference Include="CodePhile.ServiceModel">
       <HintPath>..\..\packages\CodePhile.ServiceModel.0.1.1-alpha\lib\net40\CodePhile.ServiceModel.dll</HintPath>
     </Reference>
@@ -58,6 +50,12 @@
       <HintPath>..\..\packages\CodePhile.Terminal.0.1.1-alpha\lib\net40\CodePhile.Terminal.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceModel" />
+    <Reference Include="CodePhile.Games.Core">
+      <HintPath>..\..\packages\CodePhile.Games.Core.0.1.17-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CodePhile.Games.Remote">
+      <HintPath>..\..\packages\CodePhile.Games.Remote.0.1.17-alpha\lib\net40\CodePhile.Games.Remote.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsolePlayer.cs" />

@@ -27,7 +27,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -41,14 +40,6 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CodePhile.Core, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CodePhile.Core.0.1.0.0\lib\net40\CodePhile.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="CodePhile.Games.Core, Version=0.1.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CodePhile.Games.Core.0.1.17-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
@@ -56,10 +47,16 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
+    <Reference Include="CodePhile.Core">
+      <HintPath>..\packages\CodePhile.Core.0.1.0.0\lib\net40\CodePhile.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CodePhile.Games.Core">
+      <HintPath>..\packages\CodePhile.Games.Core.0.1.17-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SpaceBeans\Game\*.cs">
-      <Link>SpaceBeans\%(FileName)</Link>
+      <Link>SpaceBeans\%25%28FileName%29</Link>
     </Compile>
     <Compile Include="AndroidPlayer.cs" />
     <Compile Include="BuyDecisionMaker.cs" />

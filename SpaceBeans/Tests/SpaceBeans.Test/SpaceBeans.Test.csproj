@@ -34,19 +34,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CodePhile.Core, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\CodePhile.Core.0.1.0.0\lib\net40\CodePhile.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="CodePhile.Games.Core, Version=0.1.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\CodePhile.Games.Core.0.1.17-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="CodePhile.Core">
+      <HintPath>..\..\..\packages\CodePhile.Core.0.1.0.0\lib\net40\CodePhile.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CodePhile.Games.Core">
+      <HintPath>..\..\..\packages\CodePhile.Games.Core.0.1.17-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BeanCargoTest.cs" />
