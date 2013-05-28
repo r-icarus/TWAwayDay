@@ -23,6 +23,7 @@ namespace SpaceBeans {
         protected override Trader GetRemoteTrader(SpaceBeansSeat seat, string name) {
             var remotePlayer = new RemotePlayer(name);
             players[seat.Position] = remotePlayer;
+            Console.WriteLine("{0} joined at {1}", name, seat.Position);
             return remotePlayer.Trader;
         }
     }

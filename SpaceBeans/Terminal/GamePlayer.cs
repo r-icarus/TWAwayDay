@@ -13,7 +13,6 @@ namespace SpaceBeans {
         }
 
         public void PlayGame() {
-            game.Start();
             while (!game.IsOver) {
                 foreach(var decision in game.Decisions.ToArray()) {
                     players.First(p => decision.Trader == p.Trader).MakeDecision(decision);

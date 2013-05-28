@@ -27,7 +27,7 @@ namespace SpaceBeans {
                              }).ToArray();
         }
 
-        public void JoinGame(GameSeat seat) {
+        public override void JoinGame(GameSeat seat) {
             var spaceBeansSeat = (SpaceBeansSeat)seat;
             if(setup.TraderCount > spaceBeansSeat.Position) {
                 throw new FaultException("Seat already taken.");

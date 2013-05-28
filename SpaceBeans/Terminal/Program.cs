@@ -8,6 +8,8 @@ using CodePhile;
 using CodePhile.ServiceModel;
 using CodePhile.Terminal;
 
+using Microsoft.Samples.DuplexHttp;
+
 namespace SpaceBeans {
     internal class Program {
         private static void Main() {
@@ -37,9 +39,11 @@ namespace SpaceBeans {
 
         private static void JoinGame() {
             try {
-                var binding = new WSDualHttpBinding();
-                var endpointAddress = new EndpointAddress("http://localhost:46302/SpaceBeans");
-                using(var client = new SpaceBeansTerminalClient(instance => new DuplexClientProxy<ISpaceBeansGameHost>(instance, binding, endpointAddress))) {
+                var binding = new DuplexHttpBinding {
+                    PollingInterval = TimeSpan.FromSeconds(1),
+                    PollingReplyInterval = TimeSpan.FromMinutes(10),
+                };
+                using(var client = new SpaceBeansTerminalClient(instance => new DuplexClientProxy<ISpaceBeansGameHost>(instance, "spaceBeans"))) {
                     client.WaitingForGameStart += (sender, args) => Console.WriteLine("Waiting for game start...");
                     Console.WriteLine("Joining game...");
                     client.JoinGameServer();
@@ -58,6 +62,7 @@ namespace SpaceBeans {
                 setup.AddTrader(trader);
             }
             var game = new SpaceBeansGame(setup);
+            game.Start();
             new GamePlayer(game, players.Append(new LocalSystem())).PlayGame();
         }
     }

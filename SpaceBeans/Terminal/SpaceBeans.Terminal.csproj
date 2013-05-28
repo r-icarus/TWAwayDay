@@ -60,6 +60,9 @@
     <Reference Include="CodePhile.Games.Remote">
       <HintPath>..\..\packages\CodePhile.Games.Remote.0.1.17-alpha\lib\net40\CodePhile.Games.Remote.dll</HintPath>
     </Reference>
+    <Reference Include="DuplexHttpBinding">
+      <HintPath>..\..\packages\DuplexHttpBinding.0.1.8-beta\lib\net35\DuplexHttpBinding.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsolePlayer.cs" />
@@ -83,6 +86,7 @@
     <Compile Include="YesNoMenu.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

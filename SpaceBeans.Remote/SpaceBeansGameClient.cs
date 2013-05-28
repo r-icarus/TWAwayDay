@@ -76,6 +76,7 @@ namespace SpaceBeans {
                             }
                         };
                 };
+            game.Start();
             waitForGameStart.Set();
         }
 

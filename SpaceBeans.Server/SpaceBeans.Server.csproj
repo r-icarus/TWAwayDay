@@ -52,21 +52,12 @@
     <Reference Include="CodePhile.Games.Remote">
       <HintPath>..\packages\CodePhile.Games.Remote.0.1.17-alpha\lib\net40\CodePhile.Games.Remote.dll</HintPath>
     </Reference>
-    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="DuplexHttpBinding">
+      <HintPath>..\packages\DuplexHttpBinding.0.1.8-beta\lib\net35\DuplexHttpBinding.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.ServiceModel.Web" />
-    <Reference Include="System.Web" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Global.asax" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -86,7 +77,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="web.config" />
+    <Content Include="SpaceBeansGameService.svc" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
