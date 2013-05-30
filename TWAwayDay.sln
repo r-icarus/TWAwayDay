@@ -357,3 +357,80 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWAwayDayWeb", "TWAwayDayWeb\TWAwayDayWeb.csproj", "{73C22DEE-1C8C-4431-A563-B06B855405B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SpaceBeans", "SpaceBeans", "{9AA2D63E-0065-4C2A-A7B6-82170CECD6C1}"
+	ProjectSection(SolutionItems) = preProject
+		SpaceBeans\Rules.pdf = SpaceBeans\Rules.pdf
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBeans", "SpaceBeans\Game\SpaceBeans.csproj", "{573F07AE-0760-4657-B813-ADA206811DED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBeans.Terminal", "SpaceBeans\Terminal\SpaceBeans.Terminal.csproj", "{5BB9039F-026C-4848-89B1-44F8B852DEAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4FAF8586-30CB-43AA-ABBC-DD4898E4BC21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBeans.Test", "SpaceBeans\Tests\SpaceBeans.Test\SpaceBeans.Test.csproj", "{8097EA40-FDBF-46DD-A08B-746A3F691848}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBeans.Android", "SpaceBeans.Android\SpaceBeans.Android.csproj", "{E80ACB1B-AC80-4059-A7F5-B9A365B29B0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBeans.Server", "SpaceBeans.Server\SpaceBeans.Server.csproj", "{94B42281-900B-40A4-856D-3950B74EB8EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceBeans.Remote", "SpaceBeans.Remote\SpaceBeans.Remote.csproj", "{A1531FEE-8850-4F2E-AD82-9208FA826678}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73C22DEE-1C8C-4431-A563-B06B855405B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73C22DEE-1C8C-4431-A563-B06B855405B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73C22DEE-1C8C-4431-A563-B06B855405B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73C22DEE-1C8C-4431-A563-B06B855405B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{573F07AE-0760-4657-B813-ADA206811DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{573F07AE-0760-4657-B813-ADA206811DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{573F07AE-0760-4657-B813-ADA206811DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{573F07AE-0760-4657-B813-ADA206811DED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BB9039F-026C-4848-89B1-44F8B852DEAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BB9039F-026C-4848-89B1-44F8B852DEAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BB9039F-026C-4848-89B1-44F8B852DEAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BB9039F-026C-4848-89B1-44F8B852DEAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8097EA40-FDBF-46DD-A08B-746A3F691848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8097EA40-FDBF-46DD-A08B-746A3F691848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8097EA40-FDBF-46DD-A08B-746A3F691848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8097EA40-FDBF-46DD-A08B-746A3F691848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E80ACB1B-AC80-4059-A7F5-B9A365B29B0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E80ACB1B-AC80-4059-A7F5-B9A365B29B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E80ACB1B-AC80-4059-A7F5-B9A365B29B0A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E80ACB1B-AC80-4059-A7F5-B9A365B29B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E80ACB1B-AC80-4059-A7F5-B9A365B29B0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E80ACB1B-AC80-4059-A7F5-B9A365B29B0A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{94B42281-900B-40A4-856D-3950B74EB8EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94B42281-900B-40A4-856D-3950B74EB8EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94B42281-900B-40A4-856D-3950B74EB8EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94B42281-900B-40A4-856D-3950B74EB8EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1531FEE-8850-4F2E-AD82-9208FA826678}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1531FEE-8850-4F2E-AD82-9208FA826678}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1531FEE-8850-4F2E-AD82-9208FA826678}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1531FEE-8850-4F2E-AD82-9208FA826678}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{573F07AE-0760-4657-B813-ADA206811DED} = {9AA2D63E-0065-4C2A-A7B6-82170CECD6C1}
+		{5BB9039F-026C-4848-89B1-44F8B852DEAD} = {9AA2D63E-0065-4C2A-A7B6-82170CECD6C1}
+		{4FAF8586-30CB-43AA-ABBC-DD4898E4BC21} = {9AA2D63E-0065-4C2A-A7B6-82170CECD6C1}
+		{E80ACB1B-AC80-4059-A7F5-B9A365B29B0A} = {9AA2D63E-0065-4C2A-A7B6-82170CECD6C1}
+		{94B42281-900B-40A4-856D-3950B74EB8EA} = {9AA2D63E-0065-4C2A-A7B6-82170CECD6C1}
+		{A1531FEE-8850-4F2E-AD82-9208FA826678} = {9AA2D63E-0065-4C2A-A7B6-82170CECD6C1}
+		{8097EA40-FDBF-46DD-A08B-746A3F691848} = {4FAF8586-30CB-43AA-ABBC-DD4898E4BC21}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = SpaceBeans\SpaceBeans.Android\SpaceBeans.Android.csproj
+	EndGlobalSection
+EndGlobal
