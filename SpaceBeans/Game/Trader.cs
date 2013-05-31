@@ -7,7 +7,7 @@ using CodePhile;
 namespace SpaceBeans {
     public class Trader {
 
-        private readonly HashSet<Bean> cardsInHand = new HashSet<Bean>();
+        private readonly HashSet<Bean> beansInHand = new HashSet<Bean>();
         private readonly ICollection<Bean> trophies = new HashSet<Bean>();
         private BeanCargo revealedCollection = new BeanCargo();
         private BeanCargo hiddenCollection = new BeanCargo();
@@ -30,12 +30,12 @@ namespace SpaceBeans {
         }
 
         public int HandCount {
-            get { return cardsInHand.Count; }
+            get { return beansInHand.Count; }
         }
 
         public void AddBeansToHand(IEnumerable<Bean> cardsToAdd) {
             foreach(var card in cardsToAdd) {
-                cardsInHand.Add(card);
+                beansInHand.Add(card);
             }
         }
 
@@ -54,13 +54,13 @@ namespace SpaceBeans {
         }
 
         public ISet<Bean> PassHand() {
-            var cardsToPass = cardsInHand.ToSet();
-            cardsInHand.Clear();
-            return cardsToPass;
+            var beansToPass = beansInHand.ToSet();
+            beansInHand.Clear();
+            return beansToPass;
         }
 
         public bool HasLegalPlay() {
-            return (from card in cardsInHand
+            return (from card in beansInHand
                     from collection in Collections
                     where collection.CanAddBean(card)
                     select card).Any();
@@ -73,8 +73,8 @@ namespace SpaceBeans {
             }
         }
 
-        public IEnumerable<Bean> CardsInHand {
-            get { return cardsInHand; } // TODO: expose as readonly
+        public IEnumerable<Bean> BeansInHand {
+            get { return beansInHand; } // TODO: expose as readonly
         }
 
         public bool IsWinner { get; set; }
@@ -96,7 +96,7 @@ namespace SpaceBeans {
 
         public void PlayCardsToCollection(CollectionIdentifier targetCollection, ISet<Bean> cardsToPlay) {
             // TODO: validate here?
-            cardsInHand.RemoveWhere(cardsToPlay.Contains);
+            beansInHand.RemoveWhere(cardsToPlay.Contains);
             GetCollection(targetCollection).AddBeans(cardsToPlay);
         }
     }

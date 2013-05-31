@@ -17,6 +17,10 @@ namespace SpaceBeans {
             this.traders = traders.ToArray();
         }
 
+        public Turn CurrentTurn {
+            get { return (Turn)CurrentGamePart; }
+        }
+
         protected override GamePart GetGamePart(int iteration) {
             return GameIsOver() ? null : new Turn(GetPlayerAt(iteration), drawPile, discardPile, GetPlayerAt(iteration - 1));
         }

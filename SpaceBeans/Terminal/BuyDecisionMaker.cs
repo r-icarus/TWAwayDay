@@ -36,7 +36,7 @@ namespace SpaceBeans {
         private void SelectBeansToPlay(BuyDecision decision) {
             Bean selectedBean;
             do {
-                var beanMenu = BuildBeanMenu(decision.AvailableCards);
+                var beanMenu = BuildBeanMenu(decision.AvailableBeans);
                 selectedBean = beanMenu.Choose<Bean>();
                 if(null != selectedBean) {
                     beansToBuy.Add(selectedBean);

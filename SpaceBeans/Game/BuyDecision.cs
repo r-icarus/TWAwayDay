@@ -18,8 +18,8 @@ namespace SpaceBeans {
             get { return trader; }
         }
 
-        public IEnumerable<Bean> AvailableCards {
-            get { return Trader.CardsInHand; }
+        public IEnumerable<Bean> AvailableBeans {
+            get { return Trader.BeansInHand; }
         }
 
         public void PlayCards(IEnumerable<Bean> cardsToPlay, CollectionIdentifier targetCollection) {
@@ -39,7 +39,7 @@ namespace SpaceBeans {
             }
 
             public override void Validate(BuyDecision decision) {
-                var beansInHand = decision.AvailableCards.ToList();
+                var beansInHand = decision.AvailableBeans.ToList();
                 foreach(var bean in cardsToPlay.ToArray()) {
                     Bean matchingBean;
                     if(beansInHand.TryFirst(b => b.Rank == bean.Rank && b.Suit == bean.Suit, out matchingBean)) {
@@ -51,7 +51,7 @@ namespace SpaceBeans {
                 if(cardsToPlay.Count == 0) {
                     throw new RuleViolationException("Must play at least one card.");
                 }
-                if(cardsToPlay.Except(decision.AvailableCards).Any()) {
+                if(cardsToPlay.Except(decision.AvailableBeans).Any()) {
                     throw new RuleViolationException("All cards played must come from player's hand.");
                 }
                 var cardsBySuit = cardsToPlay.GroupBy(c => c.Suit).ToArray();

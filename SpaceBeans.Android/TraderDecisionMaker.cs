@@ -14,7 +14,7 @@ namespace SpaceBeans
 
         public string FormatHand()
         {
-            return "Hand:    " + new BeanFormatter().FormatBeans(trader.CardsInHand);
+            return "Hand:    " + new BeanFormatter().FormatBeans(trader.BeansInHand);
         }
 
         public string FormatHiddenCollection()

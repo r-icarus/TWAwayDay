@@ -21,6 +21,10 @@ namespace SpaceBeans {
             get { return trader; }
         }
 
+        public Trader Trader {
+            get { return trader; }
+        }
+
         protected override IEnumerator<GamePart> GetGameParts() {
             yield return new DrawPhase(trader, drawPile);
             yield return new SellPhase(trader, discardPile);

@@ -16,6 +16,10 @@ namespace SpaceBeans {
             }
         }
 
+        public Trader CurrentTrader {
+            get { return GamePart.CurrentTrader; }
+        }
+
         public Trader Winner {
             get {
                 // TODO: handle ties
