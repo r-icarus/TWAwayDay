@@ -8,7 +8,7 @@
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{94B42281-900B-40A4-856D-3950B74EB8EA}</ProjectGuid>
-    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SpaceBeans.Server</RootNamespace>
@@ -41,14 +41,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CodePhile.Core, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CodePhile.Core.0.1.0.0\lib\net40\CodePhile.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="CodePhile.Games.Core, Version=0.1.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CodePhile.Games.Core.0.1.17-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
-    </Reference>
     <Reference Include="CodePhile.Games.Remote">
       <HintPath>..\packages\CodePhile.Games.Remote.0.1.17-alpha\lib\net40\CodePhile.Games.Remote.dll</HintPath>
     </Reference>
@@ -58,6 +50,12 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="CodePhile.Core">
+      <HintPath>..\packages\CodePhile.Core.0.1.0.0\lib\net40\CodePhile.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CodePhile.Games.Core">
+      <HintPath>..\packages\CodePhile.Games.Core.0.1.17-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -68,12 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpaceBeans.Remote\SpaceBeans.Remote.csproj">
-      <Project>{a1531fee-8850-4f2e-ad82-9208fa826678}</Project>
+      <Project>{A1531FEE-8850-4F2E-AD82-9208FA826678}</Project>
       <Name>SpaceBeans.Remote</Name>
     </ProjectReference>
     <ProjectReference Include="..\SpaceBeans\Game\SpaceBeans.csproj">
-      <Project>{573f07ae-0760-4657-b813-ada206811ded}</Project>
-      <Name>SpaceBeans %28SpaceBeans\SpaceBeans%29</Name>
+      <Project>{573F07AE-0760-4657-B813-ADA206811DED}</Project>
+      <Name>SpaceBeans</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -106,8 +104,14 @@
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
+    <MonoDevelop>
+      <Properties VerifyCodeBehindFields="True" VerifyCodeBehindEvents="True">
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -91,7 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SpaceBeans.Remote\SpaceBeans.Remote.csproj">
-      <Project>{a1531fee-8850-4f2e-ad82-9208fa826678}</Project>
+      <Project>{A1531FEE-8850-4F2E-AD82-9208FA826678}</Project>
       <Name>SpaceBeans.Remote</Name>
     </ProjectReference>
     <ProjectReference Include="..\Game\SpaceBeans.csproj">

@@ -11,6 +11,8 @@
     <AssemblyName>SpaceBeans.Remote</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,7 +39,7 @@
       <HintPath>..\SpaceBeans\Terminal\bin\Debug\CodePhile.Games.Remote.dll</HintPath>
     </Reference>
     <Reference Include="CodePhile.ServiceModel">
-      <HintPath>..\SpaceBeans.Server\Bin\CodePhile.ServiceModel.dll</HintPath>
+      <HintPath>..\packages\CodePhile.ServiceModel.0.1.1-alpha\lib\net40\CodePhile.ServiceModel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,8 +54,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpaceBeans\Game\SpaceBeans.csproj">
-      <Project>{573f07ae-0760-4657-b813-ada206811ded}</Project>
-      <Name>SpaceBeans %28SpaceBeans\SpaceBeans%29</Name>
+      <Project>{573F07AE-0760-4657-B813-ADA206811DED}</Project>
+      <Name>SpaceBeans</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

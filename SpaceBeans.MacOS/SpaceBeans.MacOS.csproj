@@ -67,7 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SpaceBeans.XNA\*.cs">
-        <Link>XNA\%25%28FileName%29</Link>
+      <Link>XNA\%25%28FileName%29</Link>
     </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
