@@ -46,15 +46,12 @@
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="OpenTK" />
-    <Reference Include="Lidgren.Network">
-      <HintPath>..\..\packages\Lidgren.Network.3.0.0\lib\net40\Lidgren.Network.dll</HintPath>
-    </Reference>
-    <Reference Include="MonoGame.Framework">
-      <HintPath>..\..\packages\MonoGame.Framework.3.0.0\lib\net40\MonoGame.Framework.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="CodePhile.Games.Core">
       <HintPath>..\packages\CodePhile.Games.Core.0.1.17-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>..\MonoGame.Framework\Android\MonoGame.Framework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -72,7 +69,7 @@
       <Link>SpaceBeans\%25%28FileName%29</Link>
     </Compile>
     <Compile Include="..\SpaceBeans.XNA\*.cs">
-      <Link>XNA\%25%28FileName%29</Link>
+      <Link>SpaceBeans.XNA\%25%28FileName%29</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>

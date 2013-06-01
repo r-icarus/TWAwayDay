@@ -1,6 +1,12 @@
 ﻿<Properties MonoDevelop.MonoMac.LastXamMacNagTime="31/05/2013 04:38:49 a.m.">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SpaceBeans.XNA/DrawDecisionModel.cs">
+    <Files>
+      <File FileName="SpaceBeans.Remote/SpaceBeansGameClient.cs" Line="28" Column="39" />
+      <File FileName="SpaceBeans.XNA/Game1.cs" Line="1" Column="1" />
+      <File FileName="SpaceBeans.XNA/DrawDecisionModel.cs" Line="4" Column="7" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

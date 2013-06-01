@@ -74,22 +74,21 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="Lidgren.Network">
-      <HintPath>..\..\packages\Lidgren.Network.3.0.0\lib\net40\Lidgren.Network.dll</HintPath>
-    </Reference>
     <Reference Include="MonoGame.Framework">
-      <HintPath>..\..\packages\MonoGame.Framework.3.0.0\lib\net40\MonoGame.Framework.dll</HintPath>
+      <HintPath>..\MonoGame.Framework\iOS\MonoGame.Framework.dll</HintPath>
     </Reference>
+    <Reference Include="CodePhile.Core">
+      <HintPath>..\packages\CodePhile.Core.0.1.0.0\lib\net40\CodePhile.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CodePhile.Games.Core">
+      <HintPath>..\packages\CodePhile.Games.Core.0.1.17-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\SpaceBeans.MacOS\Content\logo.png">
       <Link>Content\logo.png</Link>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\SpaceBeans.MacOS\Game1.cs">
-      <Link>SpaceBeans.MacOS\Game1.cs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -100,6 +99,12 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="..\SpaceBeans\Game\*.cs">
+      <Link>SpaceBeans\%25%28FileName%29</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans.XNA\*.cs">
+      <Link>SpaceBeans.XNA\%25%28FileName%29</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,7 +16,9 @@ namespace SpaceBeans.iOS
 		Game1 game;
 		public override void FinishedLaunching (UIApplication app)
 		{
-			game = new Game1 ();
+			var setup = new SpaceBeansGameSetup ();
+			var spaceBeansGame = new SpaceBeansGame (setup);
+			game = new Game1 (spaceBeansGame);
 			game.Run ();
 
 		}
