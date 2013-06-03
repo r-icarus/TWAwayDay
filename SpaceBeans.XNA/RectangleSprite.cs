@@ -11,6 +11,10 @@ namespace SpaceBeans.Xna {
             this.texture = texture;
         }
 
+        protected Texture2D Texture {
+            get { return texture; }
+        }
+
         public Rectangle Position {
             get { return position; }
         }

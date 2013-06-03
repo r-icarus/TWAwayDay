@@ -26,7 +26,7 @@
     <DebugSymbols>true</DebugSymbols>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;ANDROID</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -52,12 +52,122 @@
     </Reference>
     <Reference Include="MonoGame.Framework">
       <HintPath>..\MonoGame.Framework\Android\MonoGame.Framework.dll</HintPath>
+    <Reference Include="Lidgren.Network, Version=2011.3.12.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\MonoGame.Framework.3.0.1.22\lib\MonoAndroid4.0\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\MonoGame.Framework.3.0.1.22\lib\MonoAndroid4.0\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="CodePhile.Games.Core">
+      <HintPath>..\packages\CodePhile.Games.Core.0.1.17-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SpaceBeans.XNA\BuyDecisionModel.cs">
+      <Link>XNA\BuyDecisionModel.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans.XNA\Card.cs">
+      <Link>XNA\Card.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans.XNA\DecisionModel.cs">
+      <Link>XNA\DecisionModel.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans.XNA\DrawDecisionModel.cs">
+      <Link>XNA\DrawDecisionModel.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans.XNA\IDecisionModel.cs">
+      <Link>XNA\IDecisionModel.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans.XNA\IPointerInput.cs">
+      <Link>XNA\IPointerInput.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans.XNA\ISprite.cs">
+      <Link>XNA\ISprite.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans.XNA\MouseInput.cs">
+      <Link>XNA\MouseInput.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans.XNA\RectangleSprite.cs">
+      <Link>XNA\RectangleSprite.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans.XNA\SellDecisionModel.cs">
+      <Link>XNA\SellDecisionModel.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans.XNA\Textures.cs">
+      <Link>XNA\Textures.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\BeanCargo.cs">
+      <Link>SpaceBeans\BeanCargo.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\BeanFormatter.cs">
+      <Link>SpaceBeans\BeanFormatter.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\BuyDecision.cs">
+      <Link>SpaceBeans\BuyDecision.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\BuyPhase.cs">
+      <Link>SpaceBeans\BuyPhase.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\CollectionIdentifier.cs">
+      <Link>SpaceBeans\CollectionIdentifier.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\DiscardPile.cs">
+      <Link>SpaceBeans\DiscardPile.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\DrawDecision.cs">
+      <Link>SpaceBeans\DrawDecision.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\DrawPhase.cs">
+      <Link>SpaceBeans\DrawPhase.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\DrawPile.cs">
+      <Link>SpaceBeans\DrawPile.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\GameSetupPart.cs">
+      <Link>SpaceBeans\GameSetupPart.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\PlayTurnsGamePart.cs">
+      <Link>SpaceBeans\PlayTurnsGamePart.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\SellDecision.cs">
+      <Link>SpaceBeans\SellDecision.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\SellPhase.cs">
+      <Link>SpaceBeans\SellPhase.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\SetupDrawPileDecision.cs">
+      <Link>SpaceBeans\SetupDrawPileDecision.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\SpaceBeansDecision.cs">
+      <Link>SpaceBeans\SpaceBeansDecision.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\SpaceBeansGame.cs">
+      <Link>SpaceBeans\SpaceBeansGame.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\SpaceBeansGamePart.cs">
+      <Link>SpaceBeans\SpaceBeansGamePart.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\SpaceBeansGameSetup.cs">
+      <Link>SpaceBeans\SpaceBeansGameSetup.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\StandardRules.cs">
+      <Link>SpaceBeans\StandardRules.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\Suit.cs">
+      <Link>SpaceBeans\Suit.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\Trader.cs">
+      <Link>SpaceBeans\Trader.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans\Game\Turn.cs">
+      <Link>SpaceBeans\Turn.cs</Link>
+    </Compile>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\SpaceBeans.XNA\TouchInput.cs">
+      <Link>XNA\TouchInput.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -65,11 +175,13 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\SpaceBeans\Game\*.cs">
-      <Link>SpaceBeans\%25%28FileName%29</Link>
+    <Compile Include="..\SpaceBeans\Game\Bean.cs">
+      <Link>SpaceBeans\Bean.cs</Link>
     </Compile>
     <Compile Include="..\SpaceBeans.XNA\*.cs">
       <Link>SpaceBeans.XNA\%25%28FileName%29</Link>
+    <Compile Include="..\SpaceBeans.XNA\Game1.cs">
+      <Link>XNA\Game1.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -77,16 +189,52 @@
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="..\SpaceBeans.MacOS\Content\logo.png">
-      <Link>Content\logo.png</Link>
-    </AndroidAsset>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <ItemGroup>
     <Reference Include="CodePhile.Core">
       <HintPath>..\packages\CodePhile.Core.0.1.0.0\lib\net40\CodePhile.Core.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\SpaceBeans.XNA\Content\0.png">
+      <Link>Content\0.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\SpaceBeans.XNA\Content\1.png">
+      <Link>Content\1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\SpaceBeans.XNA\Content\2.png">
+      <Link>Content\2.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\SpaceBeans.XNA\Content\3.png">
+      <Link>Content\3.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\SpaceBeans.XNA\Content\4.png">
+      <Link>Content\4.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\SpaceBeans.XNA\Content\5.png">
+      <Link>Content\5.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\SpaceBeans.XNA\Content\6.png">
+      <Link>Content\6.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\SpaceBeans.XNA\Content\7.png">
+      <Link>Content\7.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\SpaceBeans.XNA\Content\8.png">
+      <Link>Content\8.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\SpaceBeans.XNA\Content\9.png">
+      <Link>Content\9.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\SpaceBeans.XNA\Content\card_back.png">
+      <Link>Content\card_back.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\SpaceBeans.XNA\Content\pass.png">
+      <Link>Content\pass.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\SpaceBeans.XNA\Content\draw.png">
+      <Link>Content\draw.png</Link>
+    </AndroidAsset>
   </ItemGroup>
 </Project>

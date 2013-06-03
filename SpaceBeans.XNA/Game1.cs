@@ -10,7 +10,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -18,7 +17,6 @@ using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
-
 using SpaceBeans.Xna;
 
 #endregion
@@ -29,18 +27,14 @@ namespace SpaceBeans.MacOS
 	/// </summary>
 	public class Game1 : Game
 	{
-	    #region Fields
+		#region Fields
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
-		Texture2D logoTexture;
-	    private Textures textures;
-
-	    private readonly SpaceBeansGame game;
-	    private IDecisionModel decisionModel;
-
-	    private MouseInput lastMouseInput = new MouseInput();
-
-	    #endregion
+		private Textures textures;
+		private readonly SpaceBeansGame game;
+		private IDecisionModel decisionModel;
+		private IPointerInput lastMouseInput;
+		#endregion
 
 	#region Initialization
 
@@ -52,14 +46,13 @@ namespace SpaceBeans.MacOS
 			
 			Content.RootDirectory = "Content";
 			graphics.IsFullScreen = false;
-		    graphics.PreferredBackBufferWidth = 320;
-		    graphics.PreferredBackBufferHeight = 568;
-            //TargetElapsedTime = TimeSpan.FromMilliseconds(250);
-		    this.IsMouseVisible = true;
+			graphics.PreferredBackBufferWidth = 320;
+			graphics.PreferredBackBufferHeight = 568;
+			this.IsMouseVisible = true;
 
 #if WINDOWS_PHONE || IOS || ANDROID
-				TargetElapsedTime = TimeSpan.FromTicks(333333);
-				graphics.IsFullScreen = true;
+			TargetElapsedTime = TimeSpan.FromTicks(333333);
+			graphics.IsFullScreen = true;
 			#endif
 		}
 		/// <summary>
@@ -78,40 +71,63 @@ namespace SpaceBeans.MacOS
 			// Create a new SpriteBatch, which can be use to draw textures.
 			spriteBatch = new SpriteBatch(graphics.GraphicsDevice);
 			
-			// TODO: use this.Content to load your game content here eg.
-            logoTexture = Content.Load<Texture2D>("logo");
-
-            textures = new Textures(graphics.GraphicsDevice);
-        }
+			textures = new Textures(graphics.GraphicsDevice, Content);
+		}
 	#endregion
 
 	#region Update and Draw
 
-		/// <summary>
-        	/// Allows the game to run logic such as updating the world,
-        	/// checking for collisions, gathering input, and playing audio.
-        	/// </summary>
-        	/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Update(GameTime gameTime)
 		{
-            lastMouseInput = new MouseInput(lastMouseInput);
-            while(null == decisionModel || decisionModel.Update(lastMouseInput)) {
-                decisionModel = createModelForDecision(game.Decisions.First());
-            }
-            		
+			lastMouseInput = getCurrentPointerInput();
+			while(!game.IsOver && (null == decisionModel || decisionModel.Update(lastMouseInput)))
+			{
+				var spaceBeansDecision = game.Decisions.FirstOrDefault();
+				if(null == spaceBeansDecision)
+				{
+					break;
+				}
+				decisionModel = createModelForDecision(spaceBeansDecision);
+				if(game.IsOver)
+				{
+					break;
+				}
+				lastMouseInput = getCurrentPointerInput();
+			}
+					
 			base.Update(gameTime);
 		}
 
-        private IDecisionModel createModelForDecision(ISpaceBeansDecision decision) {
-            if(decision is DrawDecision) {
-                return new DrawDecisionModel((DrawDecision)decision, textures);
-            } else if(decision is SellDecision) {
-                return new SellDecisionModel((SellDecision)decision, textures);
-            } else if(decision is BuyDecision) {
-                return new BuyDecisionModel((BuyDecision)decision, textures);
-            }
-            return null;
-        }
+		private IPointerInput getCurrentPointerInput()
+		{
+#if WINDOWS_PHONE || IOS || ANDROID
+			if(null == lastMouseInput)
+			{
+				lastMouseInput = new TouchInput();
+			}
+			return new TouchInput((TouchInput)lastMouseInput);
+#else
+			if (null == lastMouseInput) {
+				lastMouseInput = new MouseInput();
+			}
+			return new MouseInput((MouseInput)lastMouseInput);
+#endif
+		}
+
+		private IDecisionModel createModelForDecision(ISpaceBeansDecision decision)
+		{
+			if(decision is DrawDecision)
+			{
+				return new DrawDecisionModel((DrawDecision)decision, textures);
+			} else if(decision is SellDecision)
+			{
+				return new SellDecisionModel((SellDecision)decision, textures);
+			} else if(decision is BuyDecision)
+			{
+				return new BuyDecisionModel((BuyDecision)decision, textures);
+			}
+			return null;
+		}
 		/// <summary>
 		/// This is called when the game should draw itself. 
 		/// </summary>
@@ -123,16 +139,17 @@ namespace SpaceBeans.MacOS
 
 			spriteBatch.Begin();
 
-			// draw the logo
-            spriteBatch.Draw(logoTexture, new Vector2(130, 200), Color.White);
+			if(game.IsOver)
+			{
+			} else
+			{
+				decisionModel.DrawModel(spriteBatch);
+			}
 
-		    decisionModel.DrawModel(spriteBatch);
-
-		    spriteBatch.End();
+			spriteBatch.End();
 
 			base.Draw(gameTime);
-        }
-
-	    #endregion
+		}
+		#endregion
 	}
 }
