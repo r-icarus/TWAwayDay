@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Android.App;
-using Android.Content;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 
-using SpaceBeans.MacOS;
 using Microsoft.Xna.Framework;
 
-namespace SpaceBeans.Android.XNA
+namespace SpaceBeans.Android
 {
 	[Activity (Label = "SpaceBeans.Android.XNA", MainLauncher = true,ConfigurationChanges=ConfigChanges.Orientation|ConfigChanges.Keyboard|ConfigChanges.KeyboardHidden)]
 	public class Activity1 : AndroidGameActivity
@@ -21,8 +16,8 @@ namespace SpaceBeans.Android.XNA
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
-			Game1.Activity = this;
-			var xnaGame = new Game1(CreateGame());
+			AndroidGame.Activity = this;
+            var xnaGame = new AndroidGame(CreateGame());
 			SetContentView(xnaGame.Window);
             xnaGame.Run();
 		}

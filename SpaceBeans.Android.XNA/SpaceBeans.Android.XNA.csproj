@@ -8,7 +8,7 @@
     <ProjectGuid>{C6DB5D92-8297-4AC6-8BB2-4F9ABB4060B6}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>SpaceBeans.Android.XNA</RootNamespace>
+    <RootNamespace>SpaceBeans.Android</RootNamespace>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -72,6 +72,9 @@
     <Compile Include="..\SpaceBeans.XNA\DecisionModel.cs">
       <Link>XNA\DecisionModel.cs</Link>
     </Compile>
+    <Compile Include="..\SpaceBeans.XNA\DesktopGame.cs">
+      <Link>XNA\DesktopGame.cs</Link>
+    </Compile>
     <Compile Include="..\SpaceBeans.XNA\DrawDecisionModel.cs">
       <Link>XNA\DrawDecisionModel.cs</Link>
     </Compile>
@@ -83,6 +86,9 @@
     </Compile>
     <Compile Include="..\SpaceBeans.XNA\ISprite.cs">
       <Link>XNA\ISprite.cs</Link>
+    </Compile>
+    <Compile Include="..\SpaceBeans.XNA\MobileGame.cs">
+      <Link>XNA\MobileGame.cs</Link>
     </Compile>
     <Compile Include="..\SpaceBeans.XNA\MouseInput.cs">
       <Link>XNA\MouseInput.cs</Link>
@@ -162,6 +168,7 @@
     <Compile Include="..\SpaceBeans\Game\Turn.cs">
       <Link>SpaceBeans\Turn.cs</Link>
     </Compile>
+    <Compile Include="AndroidGame.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

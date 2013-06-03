@@ -50,11 +50,13 @@
     <Compile Include="BuyDecisionModel.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="DecisionModel.cs" />
+    <Compile Include="DesktopGame.cs" />
     <Compile Include="DrawDecisionModel.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="IDecisionModel.cs" />
     <Compile Include="IPointerInput.cs" />
     <Compile Include="ISprite.cs" />
+    <Compile Include="MobileGame.cs" />
     <Compile Include="MouseInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RectangleSprite.cs" />

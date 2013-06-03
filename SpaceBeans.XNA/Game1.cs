@@ -8,24 +8,17 @@
 #endregion
 #region Using Statements
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input.Touch;
-using Microsoft.Xna.Framework.Storage;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Media;
-using SpaceBeans.Xna;
 
 #endregion
-namespace SpaceBeans.MacOS
+namespace SpaceBeans.Xna
 {
 	/// <summary>
 	/// Default Project Template
 	/// </summary>
-	public class Game1 : Game
+	public abstract class Game1 : Game
 	{
 		#region Fields
 		GraphicsDeviceManager graphics;
@@ -38,7 +31,7 @@ namespace SpaceBeans.MacOS
 
 	#region Initialization
 
-		public Game1(SpaceBeansGame game)
+		protected Game1(SpaceBeansGame game)
 		{
 			this.game = game;
 
@@ -46,8 +39,8 @@ namespace SpaceBeans.MacOS
 			
 			Content.RootDirectory = "Content";
 			graphics.IsFullScreen = false;
-			graphics.PreferredBackBufferWidth = 320;
-			graphics.PreferredBackBufferHeight = 568;
+			graphics.PreferredBackBufferHeight = 320;
+			graphics.PreferredBackBufferWidth = 240;
 			this.IsMouseVisible = true;
 
 #if WINDOWS_PHONE || IOS || ANDROID
@@ -79,7 +72,7 @@ namespace SpaceBeans.MacOS
 
 		protected override void Update(GameTime gameTime)
 		{
-			lastMouseInput = getCurrentPointerInput();
+			lastMouseInput = GetCurrentPointerInput();
 			while(!game.IsOver && (null == decisionModel || decisionModel.Update(lastMouseInput)))
 			{
 				var spaceBeansDecision = game.Decisions.FirstOrDefault();
@@ -87,34 +80,32 @@ namespace SpaceBeans.MacOS
 				{
 					break;
 				}
-				decisionModel = createModelForDecision(spaceBeansDecision);
+				decisionModel = CreateModelForDecision(spaceBeansDecision);
 				if(game.IsOver)
 				{
 					break;
 				}
-				lastMouseInput = getCurrentPointerInput();
+				lastMouseInput = GetCurrentPointerInput();
 			}
 					
 			base.Update(gameTime);
 		}
 
-		private IPointerInput getCurrentPointerInput()
+		private IPointerInput GetCurrentPointerInput()
 		{
-#if WINDOWS_PHONE || IOS || ANDROID
 			if(null == lastMouseInput)
 			{
-				lastMouseInput = new TouchInput();
+				lastMouseInput = CreateDefaultPointerInput();
 			}
-			return new TouchInput((TouchInput)lastMouseInput);
-#else
-			if (null == lastMouseInput) {
-				lastMouseInput = new MouseInput();
-			}
-			return new MouseInput((MouseInput)lastMouseInput);
-#endif
+			var previousPointerInput = lastMouseInput;
+			return GetCurrentPointerInput(previousPointerInput);
 		}
 
-		private IDecisionModel createModelForDecision(ISpaceBeansDecision decision)
+		protected abstract IPointerInput GetCurrentPointerInput(IPointerInput previousPointerInput);
+
+		protected abstract IPointerInput CreateDefaultPointerInput();
+
+		private IDecisionModel CreateModelForDecision(ISpaceBeansDecision decision)
 		{
 			if(decision is DrawDecision)
 			{

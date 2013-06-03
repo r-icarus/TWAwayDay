@@ -2,7 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SpaceBeans.MacOS;
+
+using SpaceBeans.Xna;
 
 #endregion
 namespace SpaceBeans.Windows
@@ -25,7 +26,7 @@ namespace SpaceBeans.Windows
 			allCards = Randomize(allCards);
 			((SetupDrawPileDecision)game.Decisions.First()).AddBeans(allCards);
 
-			var xnaGame = new Game1(game);
+			var xnaGame = new DesktopGame(game);
 			xnaGame.Run();
 		}
 

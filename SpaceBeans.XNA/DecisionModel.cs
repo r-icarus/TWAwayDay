@@ -10,12 +10,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SpaceBeans.Xna {
     public abstract class DecisionModel : IDecisionModel {
-        public const int CardWidth = 34;
-        public const int CardHeight = 50;
-        public const int CardMargin = 8;
+        public const int CardWidth = 17;
+        public const int CardHeight = 25;
+        public const int CardMargin = 5;
         public const int CardOffsetX = CardWidth + CardMargin;
         public const int CardOffsetY = CardHeight + CardMargin;
-        public const int CollectionWidth = 40;
+        public const int CollectionWidth = 25;
         public const int CollectionOffsetX = CollectionWidth + CardMargin;
         private const int LeftMargin = 20;
         private const int TopMargin = 20;
@@ -41,15 +41,15 @@ namespace SpaceBeans.Xna {
         protected DecisionModel(ISpaceBeansDecision decision, Textures textures) {
             this.decision = decision;
             var trader = decision.Trader;
-            cardsInHand = CreateCardsFromBeans(trader.BeansInHand, textures, index => LeftMargin + (CardOffsetX * index), index => TopMargin);
-            cardsInRevealed = CreateCardsFromBeans(trader.RevealedCollection, textures, index => LeftMargin, index => TopMargin + (CardOffsetY * (index + 2)));
-            cardsInHidden = CreateCardsFromBeans(trader.HiddenCollection, textures, index => LeftMargin + CardOffsetX, index => TopMargin + (CardOffsetY * (index + 2)));
-            deck = new RectangleSprite(new Rectangle(LeftMargin + (CollectionOffsetX * 2), TopMargin + CardOffsetY, CardWidth, CardHeight), textures.CardBack);
-            revealedCollection = new CollectionSprite(new Rectangle(LeftMargin, TopMargin + CardOffsetY, CollectionWidth, CardHeight), textures.White);
-            hiddenCollection = new CollectionSprite(new Rectangle(LeftMargin + CollectionOffsetX, TopMargin + CardOffsetY, CollectionWidth, CardHeight), textures.Black);
+            cardsInHand = CreateCardsFromBeans(trader.BeansInHand, textures, index => LeftMargin + (CardOffsetX * (index + 1)), index => TopMargin);
+            cardsInRevealed = CreateCardsFromBeans(trader.RevealedCollection, textures, index => LeftMargin + CardOffsetX, index => TopMargin + (CardOffsetY * (index + 2)));
+            cardsInHidden = CreateCardsFromBeans(trader.HiddenCollection, textures, index => LeftMargin + CardOffsetX + CollectionOffsetX, index => TopMargin + (CardOffsetY * (index + 2)));
+            deck = new RectangleSprite(new Rectangle(LeftMargin, TopMargin, CardWidth, CardHeight), textures.CardBack);
+            revealedCollection = new CollectionSprite(new Rectangle(LeftMargin + CardOffsetX, TopMargin + CardOffsetY, CollectionWidth, CardHeight), textures.White);
+            hiddenCollection = new CollectionSprite(new Rectangle(LeftMargin + CardOffsetX + CollectionOffsetX, TopMargin + CardOffsetY, CollectionWidth, CardHeight), textures.Black);
             var passableDecision = decision as PassableDecision;
             if(null != passableDecision && passableDecision.CanPass()) {
-                passSprite = new RectangleSprite(new Rectangle(250, 500, CardWidth, 20), textures.Pass);
+                passSprite = new RectangleSprite(new Rectangle(LeftMargin, TopMargin + CardOffsetY, CardWidth, 20), textures.Pass);
             }
         }
 
@@ -86,7 +86,7 @@ namespace SpaceBeans.Xna {
         }
 
         public virtual bool Update(IPointerInput input) {
-            if(input.IsNewActivation && passSprite == FindActivatedSprite(input.Location)) {
+            if(input.IsNewActivation && null != passSprite && passSprite == FindActivatedSprite(input.Location)) {
                 ((PassableDecision)decision).Pass();
                 return true;
             }

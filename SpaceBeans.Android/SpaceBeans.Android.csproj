@@ -55,8 +55,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\SpaceBeans\Game\*.cs">
-      <Link>SpaceBeans\%25%28FileName%29</Link>
+    <Compile Include="..\SpaceBeans\Game\Bean.cs">
+      <Link>SpaceBeans\Bean.cs</Link>
     </Compile>
     <Compile Include="AndroidPlayer.cs" />
     <Compile Include="BuyDecisionMaker.cs" />
