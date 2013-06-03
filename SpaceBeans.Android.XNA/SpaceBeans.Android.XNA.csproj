@@ -52,14 +52,12 @@
     </Reference>
     <Reference Include="MonoGame.Framework">
       <HintPath>..\MonoGame.Framework\Android\MonoGame.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="Lidgren.Network, Version=2011.3.12.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\MonoGame.Framework.3.0.1.22\lib\MonoAndroid4.0\Lidgren.Network.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Framework, Version=3.0.1.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\MonoGame.Framework.3.0.1.22\lib\MonoAndroid4.0\MonoGame.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="CodePhile.Games.Core">
-      <HintPath>..\packages\CodePhile.Games.Core.0.1.17-alpha\lib\net40\CodePhile.Games.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +185,7 @@
     </Compile>
     <Compile Include="..\SpaceBeans.XNA\*.cs">
       <Link>SpaceBeans.XNA\%25%28FileName%29</Link>
+    </Compile>
     <Compile Include="..\SpaceBeans.XNA\Game1.cs">
       <Link>XNA\Game1.cs</Link>
     </Compile>
