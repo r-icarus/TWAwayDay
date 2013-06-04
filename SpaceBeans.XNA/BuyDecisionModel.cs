@@ -15,33 +15,30 @@ namespace SpaceBeans.Xna {
         public BuyDecisionModel(BuyDecision decision, Textures textures) : base(decision, textures) {
             this.decision = decision;
             haloTexture = textures.White;
-        }
 
-        public override bool Update(IPointerInput input) {
-            if(input.IsNewActivation) {
-                var activatedSprite = FindActivatedSprite(input.Location);
-                if(null == activatedSprite) {
-                    return false;
-                }
-                if(RevealedCollection == activatedSprite) {
-                    PlaySelectedCards(CollectionIdentifier.Revealed);
-                    return true;
-                } else if(HiddenCollection == activatedSprite) {
-                    PlaySelectedCards(CollectionIdentifier.Hidden);
-                    return true;
-                } else {
-                    var activatedCard = (Card)activatedSprite;
+            OnSelected(RevealedCollection, s => {
+                PlaySelectedCards(CollectionIdentifier.Revealed);
+                return true;
+            });
+
+            OnSelected(HiddenCollection, s => {
+                PlaySelectedCards(CollectionIdentifier.Hidden);
+                return true;
+            });
+
+            foreach(var card in CardsInHand) {
+                OnSelected(card, s => {
+                    var activatedCard = (Card)s;
                     if(selectedCards.Remove(activatedCard)) {
                         return false;
-                    } else if(decision.AvailableBeans.Contains(activatedCard.Bean)) {
+                    } else {
                         selectedCards.Add(activatedCard);
                         return false;
                     }
-                }
+                });
             }
-            return false;
         }
-
+        
         private void PlaySelectedCards(CollectionIdentifier collection) {
             this.decision.PlayCards(selectedCards.Select(c => c.Bean), collection);
         }

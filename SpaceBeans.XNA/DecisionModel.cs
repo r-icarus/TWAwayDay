@@ -10,12 +10,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SpaceBeans.Xna {
     public abstract class DecisionModel : IDecisionModel {
-        public const int CardWidth = 17;
-        public const int CardHeight = 25;
+        public const int CardWidth = 60;
+        public const int CardHeight = 90;
         public const int CardMargin = 5;
         public const int CardOffsetX = CardWidth + CardMargin;
         public const int CardOffsetY = CardHeight + CardMargin;
-        public const int CollectionWidth = 25;
+        public const int CollectionWidth = 66;
         public const int CollectionOffsetX = CollectionWidth + CardMargin;
         private const int LeftMargin = 20;
         private const int TopMargin = 20;
@@ -29,6 +29,10 @@ namespace SpaceBeans.Xna {
         private readonly RectangleSprite hiddenCollection;
         private readonly RectangleSprite passSprite;
         private readonly ISpaceBeansDecision decision;
+
+        private readonly Texture2D selectableTexture;
+
+        private readonly IDictionary<ISprite, Func<ISprite, bool>> selectedHandlers = new Dictionary<ISprite, Func<ISprite, bool>>();
 
         private class CollectionSprite : RectangleSprite {
             public CollectionSprite(Rectangle position, Texture2D texture) : base(position, texture) {}
@@ -50,7 +54,12 @@ namespace SpaceBeans.Xna {
             var passableDecision = decision as PassableDecision;
             if(null != passableDecision && passableDecision.CanPass()) {
                 passSprite = new RectangleSprite(new Rectangle(LeftMargin, TopMargin + CardOffsetY, CardWidth, 20), textures.Pass);
+                OnSelected(passSprite, s => {
+                    passableDecision.Pass();
+                    return true;
+                });
             }
+            selectableTexture = textures.White;
         }
 
         private static List<Card> CreateCardsFromBeans(IEnumerable<Bean> beans, Textures textures, Func<int, int> rectX, Func<int, int> rectY) {
@@ -85,24 +94,34 @@ namespace SpaceBeans.Xna {
             get { return CardsInHand.Concat(CardsInRevealed).Concat(CardsInHidden).Cast<ISprite>().Append(revealedCollection).Append(hiddenCollection).Append(deck).Append(passSprite).Where(s => null != s).Cast<ISprite>(); }
         }
 
+        protected void OnSelected(ISprite sprite, Func<ISprite, bool> action) {
+            this.selectedHandlers.Add(sprite, action);
+        }
+
         public virtual bool Update(IPointerInput input) {
-            if(input.IsNewActivation && null != passSprite && passSprite == FindActivatedSprite(input.Location)) {
-                ((PassableDecision)decision).Pass();
-                return true;
+            if(input.IsNewActivation) {
+                var activatedSprite = FindActivatedSprite(input.Location);
+                if(null != activatedSprite) {
+                    return this.selectedHandlers[activatedSprite](activatedSprite);
+                }
             }
             return false;
         }
 
         public virtual void DrawModel(SpriteBatch spriteBatch) {
             foreach(var sprite in AllSprites) {
+                if(this.selectedHandlers.ContainsKey(sprite)) {
+                    spriteBatch.Draw(selectableTexture, new Rectangle(sprite.Position.X - 3, sprite.Position.Y - 3, sprite.Position.Width + 6, 1), Color.White * 0.75f);
+                    spriteBatch.Draw(selectableTexture, new Rectangle(sprite.Position.X - 3, sprite.Position.Y + sprite.Position.Height + 3, sprite.Position.Width + 6, 1), Color.White * 0.75f);
+                    spriteBatch.Draw(selectableTexture, new Rectangle(sprite.Position.X - 3, sprite.Position.Y - 3, 1, sprite.Position.Height + 6), Color.White * 0.75f);
+                    spriteBatch.Draw(selectableTexture, new Rectangle(sprite.Position.X + sprite.Position.Width + 3, sprite.Position.Y - 3, 1, sprite.Position.Height + 6), Color.White * 0.75f);
+                }
                 sprite.Draw(spriteBatch);
             }
         }
 
-        protected ISprite FindActivatedSprite(Point location) {
-            return SelectableSprites.Append(passSprite).Where(s => null != s).Reverse().FirstOrDefault(s => s.Contains(location));
+        private ISprite FindActivatedSprite(Point location) {
+            return AllSprites.Reverse().FirstOrDefault(s => selectedHandlers.ContainsKey(s) && s.Contains(location));
         }
-
-        protected abstract IEnumerable<ISprite> SelectableSprites { get; }
     }
 }

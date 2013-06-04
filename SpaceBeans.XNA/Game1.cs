@@ -40,8 +40,8 @@ namespace SpaceBeans.Xna
 			
 			Content.RootDirectory = "Content";
 			graphics.IsFullScreen = false;
-			graphics.PreferredBackBufferHeight = 320;
-			graphics.PreferredBackBufferWidth = 240;
+			graphics.PreferredBackBufferHeight = 700;
+			graphics.PreferredBackBufferWidth = 480;
 			this.IsMouseVisible = true;
 
 #if WINDOWS_PHONE || IOS || ANDROID
@@ -127,7 +127,7 @@ namespace SpaceBeans.Xna
 		protected override void Draw(GameTime gameTime)
 		{
 			// Clear the backbuffer
-			graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
+			graphics.GraphicsDevice.Clear(Color.Silver);
 
 			spriteBatch.Begin();
 

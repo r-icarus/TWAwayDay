@@ -6,5 +6,7 @@ namespace SpaceBeans.Xna {
         void Draw(SpriteBatch spriteBatch);
 
         bool Contains(Point point);
+
+        Rectangle Position { get; }
     }
 }
