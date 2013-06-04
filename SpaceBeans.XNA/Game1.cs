@@ -36,6 +36,7 @@ namespace SpaceBeans.Xna
 			this.game = game;
 
 			graphics = new GraphicsDeviceManager(this);
+			graphics.SupportedOrientations = DisplayOrientation.Portrait;
 			
 			Content.RootDirectory = "Content";
 			graphics.IsFullScreen = false;

@@ -82,7 +82,7 @@ namespace SpaceBeans.Xna {
         }
 
         protected virtual IEnumerable<ISprite> AllSprites {
-            get { return CardsInHand.Concat(CardsInRevealed).Concat(CardsInHidden).Append(revealedCollection).Append(hiddenCollection).Append(deck).Append(passSprite).Where(s => null != s).Cast<ISprite>(); }
+            get { return CardsInHand.Concat(CardsInRevealed).Concat(CardsInHidden).Cast<ISprite>().Append(revealedCollection).Append(hiddenCollection).Append(deck).Append(passSprite).Where(s => null != s).Cast<ISprite>(); }
         }
 
         public virtual bool Update(IPointerInput input) {

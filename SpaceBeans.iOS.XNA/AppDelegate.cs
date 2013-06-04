@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MonoTouch.Foundation;
+
 using MonoTouch.UIKit;
-using SpaceBeans.MacOS;
+using MonoTouch.Foundation;
+using SpaceBeans.Xna;
 
 namespace SpaceBeans.iOS
 {
@@ -13,14 +14,34 @@ namespace SpaceBeans.iOS
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : UIApplicationDelegate
 	{
-		Game1 game;
 		public override void FinishedLaunching (UIApplication app)
 		{
-			var setup = new SpaceBeansGameSetup ();
-			var spaceBeansGame = new SpaceBeansGame (setup);
-			game = new Game1 (spaceBeansGame);
-			game.Run ();
+			var xnaGame = new MobileGame(CreateGame());
+			xnaGame.Run();
+		}
 
+		private static SpaceBeansGame CreateGame() {
+			var setup = new SpaceBeansGameSetup();
+			setup.AddTrader(new Trader("1"));
+			setup.AddTrader(new Trader("2"));
+			var game = new SpaceBeansGame(setup);
+			game.Start();
+
+			var allCards = StandardRules.GenerateStandardCards();
+			allCards = Randomize(allCards);
+			((SetupDrawPileDecision)game.Decisions.First()).AddBeans(allCards);
+
+			return game;
+		}
+
+		private static IEnumerable<T> Randomize<T>(IEnumerable<T> source) {
+			var sourceCopy = source.ToList();
+			var rand = new Random();
+			while (sourceCopy.Count > 0) {
+				var nextIndex = rand.Next(0, sourceCopy.Count - 1);
+				yield return sourceCopy[nextIndex];
+				sourceCopy.RemoveAt(nextIndex);
+			}
 		}
 
 	

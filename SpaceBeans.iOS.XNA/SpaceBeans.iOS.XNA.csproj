@@ -22,6 +22,8 @@
     <ConsolePause>false</ConsolePause>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <MtouchI18n />
+    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <Optimize>true</Optimize>
@@ -86,12 +88,8 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\SpaceBeans.MacOS\Content\logo.png">
-      <Link>Content\logo.png</Link>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -100,11 +98,14 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="..\SpaceBeans\Game\*.cs">
-      <Link>SpaceBeans\%25%28FileName%29</Link>
+      <Link>SpaceBeans\%(FileName)</Link>
     </Compile>
     <Compile Include="..\SpaceBeans.XNA\*.cs">
-      <Link>SpaceBeans.XNA\%25%28FileName%29</Link>
+      <Link>SpaceBeans.XNA\%(FileName)</Link>
     </Compile>
+    <BundleResource Include="..\SpaceBeans.XNA\Content\*.png">
+      <Link>Content\%(FileName)</Link>
+    </BundleResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

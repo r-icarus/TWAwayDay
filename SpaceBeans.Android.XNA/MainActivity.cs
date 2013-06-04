@@ -7,6 +7,7 @@ using Android.Content.PM;
 using Android.OS;
 
 using Microsoft.Xna.Framework;
+using SpaceBeans.Xna;
 
 namespace SpaceBeans.Android
 {
@@ -17,7 +18,7 @@ namespace SpaceBeans.Android
 		{
 			base.OnCreate(bundle);
 			AndroidGame.Activity = this;
-            var xnaGame = new AndroidGame(CreateGame());
+            var xnaGame = new MobileGame(CreateGame());
 			SetContentView(xnaGame.Window);
             xnaGame.Run();
 		}
