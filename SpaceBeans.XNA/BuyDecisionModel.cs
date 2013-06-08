@@ -52,9 +52,5 @@ namespace SpaceBeans.Xna {
 
             base.DrawModel(spriteBatch);
         }
-
-        protected override IEnumerable<ISprite> SelectableSprites {
-            get { return CardsInHand.Cast<ISprite>().Append(RevealedCollection).Append(HiddenCollection); }
-        }
     }
 }

@@ -127,7 +127,7 @@ namespace SpaceBeans.Xna
 		protected override void Draw(GameTime gameTime)
 		{
 			// Clear the backbuffer
-			graphics.GraphicsDevice.Clear(Color.Silver);
+			graphics.GraphicsDevice.Clear(Color.Black);
 
 			spriteBatch.Begin();
 
